@@ -16,8 +16,8 @@ export const EventSection: React.FC<EventSectionProps> = ({
   const contentKey = `${title}_${description}`;
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center text-center px-4 max-w-[1100px] mx-auto select-none">
-      {/* Main Event Content - NO Card box, Same colour bg, Layered shadow on Title, Normal bold on description */}
+    <div className="flex-1 flex flex-col items-center justify-center text-center px-2 max-w-[1050px] mx-auto select-none">
+      {/* Main Event Content */}
       <div className="w-full relative">
         <AnimatePresence mode="wait">
           <motion.div
@@ -31,12 +31,12 @@ export const EventSection: React.FC<EventSectionProps> = ({
             }}
             className="flex flex-col items-center justify-center"
           >
-            {/* Event Title - NO gradient! Solid color with Layered Shadow */}
+            {/* Event Title - Solid color with Layered Shadow */}
             <motion.h2
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight font-display leading-[1.1] max-w-full break-words uppercase layered-shadow-title"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight font-display leading-[1.08] max-w-full break-words uppercase layered-shadow-title"
             >
               {title || 'Loading Event...'}
             </motion.h2>
@@ -46,7 +46,7 @@ export const EventSection: React.FC<EventSectionProps> = ({
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="mt-4 xl:mt-6 text-xl md:text-2xl lg:text-3xl font-bold text-slate-700 max-w-[900px] leading-relaxed break-words"
+              className="mt-3 xl:mt-5 text-xl md:text-2xl lg:text-3xl font-bold text-slate-700 max-w-[850px] leading-relaxed break-words"
             >
               {description || 'Please wait for announcements.'}
             </motion.p>
@@ -54,9 +54,11 @@ export const EventSection: React.FC<EventSectionProps> = ({
         </AnimatePresence>
       </div>
 
-      {/* Date & Time placed directly BELOW Event Descriptions */}
-      <div className="mt-8 xl:mt-10 pt-4">
-        <LiveClock />
+      {/* Time and Date in a Box matching user requirement */}
+      <div className="mt-6 xl:mt-8 inline-flex items-center justify-center">
+        <div className="px-8 py-3 bg-white/95 border border-slate-300/80 rounded-2xl shadow-card-subtle backdrop-blur-md flex items-center justify-center">
+          <LiveClock />
+        </div>
       </div>
     </div>
   );

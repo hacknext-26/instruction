@@ -6,7 +6,7 @@ export const MascotSection: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center select-none w-full">
-      {/* Pure Mascot Image - No Border, No Extra Wordings, Matching Diagram */}
+      {/* Bigger Mascot Image - No Border, No Extra Wordings */}
       <motion.div
         className="w-full flex items-center justify-center relative"
         animate={{ y: [0, -6, 0] }}
@@ -15,7 +15,7 @@ export const MascotSection: React.FC = () => {
         <img
           src={!cleanErr ? "/assets/mascot-clean.png" : "/assets/mascot.png"}
           alt="Hackathon Coding Team Mascot"
-          className="w-full max-w-[300px] xl:max-w-[360px] h-auto object-contain drop-shadow-md select-none mix-blend-multiply"
+          className="w-full max-w-[340px] md:max-w-[380px] xl:max-w-[440px] 2xl:max-w-[480px] h-auto object-contain drop-shadow-md select-none mix-blend-multiply"
           onError={() => setCleanErr(true)}
         />
       </motion.div>

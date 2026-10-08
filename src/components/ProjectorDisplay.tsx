@@ -43,20 +43,20 @@ export const ProjectorDisplay: React.FC<ProjectorDisplayProps> = ({
       {/* Fullscreen Button Prompt (hidden when isPreview is true) */}
       <FullscreenButton isPreview={isPreview} />
 
-      {/* TOP: Fixed College Branding, Neon Glitch Logo Image & Centered Live Clock */}
+      {/* TOP: Logos with College Name in one line & Big HackNext Neon Logo */}
       <Header floorNumber={floorNumber} />
 
       {/* MIDDLE: 3 Separate columns - |QR|Event|Mascot|
-          QR and Mascot same width separated, center has maximum space */}
-      <div className="relative z-10 flex-1 flex items-center justify-between px-8 xl:px-16 py-3 w-full max-w-[1920px] mx-auto overflow-hidden">
+          QR and Mascot same width separated, center has dominant space */}
+      <div className="relative z-10 flex-1 flex items-center justify-between px-6 xl:px-14 py-2 w-full max-w-[1920px] mx-auto overflow-hidden">
         
-        {/* Left: Problem Statement QR Portal Box */}
-        <div className="w-[280px] xl:w-[340px] shrink-0 flex flex-col items-center justify-center">
+        {/* Left: Problem Statement QR Portal */}
+        <div className="w-[320px] xl:w-[400px] shrink-0 flex flex-col items-center justify-center">
           <PortalSection />
         </div>
 
-        {/* Center: Dominant Event Title & Description (has MORE space) */}
-        <div className="flex-1 flex items-center justify-center h-full px-6 xl:px-12">
+        {/* Center: Dominant Event Title, Description & Boxed Clock */}
+        <div className="flex-1 flex items-center justify-center h-full px-4 xl:px-8">
           <EventSection
             title={event.event_title}
             description={event.event_description}
@@ -64,8 +64,8 @@ export const ProjectorDisplay: React.FC<ProjectorDisplayProps> = ({
           />
         </div>
 
-        {/* Right: Coding Team Mascot (Same width as QR: 280px - 340px) */}
-        <div className="w-[280px] xl:w-[340px] shrink-0 flex items-center justify-center">
+        {/* Right: Coding Team Mascot (Same width as QR side) */}
+        <div className="w-[320px] xl:w-[400px] shrink-0 flex items-center justify-center">
           <MascotSection />
         </div>
       </div>

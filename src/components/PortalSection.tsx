@@ -7,26 +7,26 @@ export const PortalSection: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center select-none w-full">
-      {/* Increased QR Code Size with NO Borders matching requirement */}
+      {/* Bigger QR Code Size with NO Borders */}
       <div className="relative p-2 flex flex-col items-center justify-center">
         <QRCodeSVG
           value={PORTAL_URL}
-          size={250}
+          size={320}
           level="M"
           bgColor="#ffffff"
           fgColor="#0f172a"
           includeMargin={true}
-          className="w-56 h-56 xl:w-64 xl:h-64 drop-shadow-sm rounded-xl"
+          className="w-64 h-64 md:w-72 md:h-72 xl:w-80 xl:h-80 drop-shadow-sm rounded-2xl"
         />
       </div>
 
-      {/* URL Text Directly Below QR Code */}
-      <div className="mt-3 text-center">
+      {/* Bigger and Bold Link Text */}
+      <div className="mt-4 text-center">
         <a
           href={PORTAL_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block text-slate-700 hover:text-blue-600 font-mono text-sm xl:text-base font-bold tracking-tight transition-colors"
+          className="inline-block text-slate-900 hover:text-blue-600 font-mono text-base md:text-lg lg:text-xl xl:text-2xl font-black tracking-tight transition-colors drop-shadow-2xs"
         >
           {DISPLAY_URL}
         </a>
