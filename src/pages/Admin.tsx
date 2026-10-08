@@ -279,10 +279,16 @@ export const Admin: React.FC = () => {
                 value={formData[selectedFloor].title}
                 onChange={(e) => handleInputChange('title', e.target.value)}
                 placeholder="e.g., PROBLEM STATEMENT&#10;REVEAL"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-100 text-slate-900 font-bold text-base transition-all outline-none resize-none leading-snug"
+                className={`w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-100 text-slate-900 font-bold ${
+                  formData[selectedFloor].title.length <= 25 
+                    ? 'text-lg' 
+                    : formData[selectedFloor].title.length <= 50 
+                    ? 'text-base' 
+                    : 'text-sm'
+                } transition-all outline-none resize-none leading-snug`}
               />
               <p className="text-[11px] text-slate-500 mt-1">
-                Type across two lines comfortably without collapsing.
+                Type across two lines. Font size scales down automatically as characters increase.
               </p>
             </div>
 
