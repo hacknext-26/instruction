@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LiveClock } from './LiveClock';
 
 interface EventSectionProps {
   title: string;
@@ -16,7 +17,7 @@ export const EventSection: React.FC<EventSectionProps> = ({
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center text-center px-4 max-w-[1100px] mx-auto select-none">
-      {/* Main Event Content - NO 'Current Event' pill */}
+      {/* Main Event Content - NO Card box, Same colour bg, Layered shadow on Title, Normal bold on description */}
       <div className="w-full relative">
         <AnimatePresence mode="wait">
           <motion.div
@@ -30,37 +31,32 @@ export const EventSection: React.FC<EventSectionProps> = ({
             }}
             className="flex flex-col items-center justify-center"
           >
-            {/* Event Title - Very Large, Bold, Luminous Accent */}
+            {/* Event Title - NO gradient! Solid color with Layered Shadow */}
             <motion.h2
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black tracking-tight text-slate-900 font-display leading-[1.08] max-w-full break-words uppercase"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight font-display leading-[1.1] max-w-full break-words uppercase layered-shadow-title"
             >
-              <span className="text-gradient-hack">
-                {title || 'Loading Event...'}
-              </span>
+              {title || 'Loading Event...'}
             </motion.h2>
 
-            {/* Accent Line */}
-            <motion.div
-              initial={{ width: 0, opacity: 0 }}
-              animate={{ width: '100px', opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full my-4 xl:my-6"
-            />
-
-            {/* Event Description - Medium/Large, Controlled Wrapping */}
+            {/* Event Description - Normal Bold */}
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-600 max-w-[880px] leading-relaxed break-words"
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="mt-4 xl:mt-6 text-xl md:text-2xl lg:text-3xl font-bold text-slate-700 max-w-[900px] leading-relaxed break-words"
             >
               {description || 'Please wait for announcements.'}
             </motion.p>
           </motion.div>
         </AnimatePresence>
+      </div>
+
+      {/* Date & Time placed directly BELOW Event Descriptions */}
+      <div className="mt-8 xl:mt-10 pt-4">
+        <LiveClock />
       </div>
     </div>
   );
