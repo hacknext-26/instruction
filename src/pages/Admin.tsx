@@ -120,34 +120,44 @@ export const Admin: React.FC = () => {
     }
   };
 
-  const handlePublishAllFloors = async () => {
+  const handlePublishAllFloorsWithCurrentEvent = async () => {
     setIsPublishing(true);
     setPublishStatus(null);
 
+    const activeTitle = formData[selectedFloor].title;
+    const activeDescription = formData[selectedFloor].description;
+
+    // Apply the active event to all 3 floors at once
     const floorsToUpdate: Array<{ floorNumber: FloorNumber; title: string; description: string }> = [
-      { floorNumber: 1, title: formData[1].title, description: formData[1].description },
-      { floorNumber: 2, title: formData[2].title, description: formData[2].description },
-      { floorNumber: 3, title: formData[3].title, description: formData[3].description },
+      { floorNumber: 1, title: activeTitle, description: activeDescription },
+      { floorNumber: 2, title: activeTitle, description: activeDescription },
+      { floorNumber: 3, title: activeTitle, description: activeDescription },
     ];
 
     const res = await updateAllFloors(floorsToUpdate);
 
     setIsPublishing(false);
     if (res.success) {
+      // Sync local form state and published state for all floors
+      setFormData(prev => ({
+        1: { ...prev[1], title: activeTitle, description: activeDescription },
+        2: { ...prev[2], title: activeTitle, description: activeDescription },
+        3: { ...prev[3], title: activeTitle, description: activeDescription },
+      }));
       setPublishedData({
-        1: { title: formData[1].title, description: formData[1].description },
-        2: { title: formData[2].title, description: formData[2].description },
-        3: { title: formData[3].title, description: formData[3].description },
+        1: { title: activeTitle, description: activeDescription },
+        2: { title: activeTitle, description: activeDescription },
+        3: { title: activeTitle, description: activeDescription },
       });
       setPublishStatus({
         type: 'success',
-        message: 'All 3 floors published successfully! All venue projectors updated.'
+        message: 'All 3 venue floors updated to this event with 1 click!'
       });
       setTimeout(() => setPublishStatus(null), 5000);
     } else {
       setPublishStatus({
         type: 'error',
-        message: 'Unable to publish update. Please try again.'
+        message: 'Unable to publish update to all floors. Please try again.'
       });
     }
   };
@@ -336,7 +346,7 @@ export const Admin: React.FC = () => {
             )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col gap-2.5 pt-2">
+            <div className="flex flex-col gap-3 pt-2">
               <button
                 onClick={handlePublishCurrentFloor}
                 disabled={isPublishing}
@@ -347,16 +357,20 @@ export const Admin: React.FC = () => {
                 ) : (
                   <Send className="w-4 h-4" />
                 )}
-                <span>PUBLISH FLOOR {selectedFloor}</span>
+                <span>PUBLISH ONLY FLOOR {selectedFloor}</span>
               </button>
 
               <button
-                onClick={handlePublishAllFloors}
+                onClick={handlePublishAllFloorsWithCurrentEvent}
                 disabled={isPublishing}
-                className="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs tracking-wider uppercase border border-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3.5 px-5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 disabled:opacity-50 text-white font-black text-sm tracking-wide uppercase shadow-lg shadow-emerald-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
               >
-                <Layers className="w-3.5 h-3.5 text-slate-500" />
-                <span>PUBLISH ALL FLOORS</span>
+                {isPublishing ? (
+                  <RefreshCw className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Layers className="w-4 h-4" />
+                )}
+                <span>PUBLISH TO ALL FLOORS (1 CLICK)</span>
               </button>
             </div>
           </div>
