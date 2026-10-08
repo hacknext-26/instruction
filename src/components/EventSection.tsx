@@ -16,7 +16,7 @@ export const EventSection: React.FC<EventSectionProps> = ({
   const contentKey = `${title}_${description}`;
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center text-center px-2 max-w-[1050px] mx-auto select-none">
+    <div className="flex-1 flex flex-col items-center justify-center text-center px-4 max-w-[1100px] mx-auto select-none">
       {/* Main Event Content */}
       <div className="w-full relative">
         <AnimatePresence mode="wait">
@@ -31,7 +31,7 @@ export const EventSection: React.FC<EventSectionProps> = ({
             }}
             className="flex flex-col items-center justify-center"
           >
-            {/* Event Title - Solid color with Layered Shadow */}
+            {/* Event Title - Solid Color with Layered Dimensional Shadow */}
             <motion.h2
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -46,7 +46,7 @@ export const EventSection: React.FC<EventSectionProps> = ({
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="mt-3 xl:mt-5 text-xl md:text-2xl lg:text-3xl font-bold text-slate-700 max-w-[850px] leading-relaxed break-words"
+              className="mt-3.5 xl:mt-5 text-xl md:text-2xl lg:text-3xl font-bold text-slate-700 max-w-[900px] leading-relaxed break-words"
             >
               {description || 'Please wait for announcements.'}
             </motion.p>
@@ -54,9 +54,9 @@ export const EventSection: React.FC<EventSectionProps> = ({
         </AnimatePresence>
       </div>
 
-      {/* Time and Date in a Box matching user requirement */}
+      {/* Time and Date in an Elegant Luminous Glass Box */}
       <div className="mt-6 xl:mt-8 inline-flex items-center justify-center">
-        <div className="px-8 py-3 bg-white/95 border border-slate-300/80 rounded-2xl shadow-card-subtle backdrop-blur-md flex items-center justify-center">
+        <div className="px-9 py-3.5 bg-white/95 border border-slate-200/90 rounded-2xl shadow-card-elevated backdrop-blur-md flex items-center justify-center ring-1 ring-slate-900/5">
           <LiveClock />
         </div>
       </div>
