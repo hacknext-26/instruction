@@ -44,12 +44,12 @@ export const Header: React.FC<HeaderProps> = () => {
         )}
       </div>
 
-      {/* Center: HackNext'26 Neon Glitch Logo - ENLARGED PROMINENT CENTERPIECE (Clear of title) */}
-      <div className="mt-1 md:mt-2 flex items-center justify-center">
+      {/* Center: HackNext'26 Neon Glitch Logo - ENLARGED PROMINENT CENTERPIECE */}
+      <div className="mt-1 md:mt-1.5 flex items-center justify-center">
         <img
           src="/assets/hacknext-logo.png"
           alt="HACKNEXT'26 SERIES 2.0"
-          className="h-20 md:h-24 lg:h-32 xl:h-36 2xl:h-40 w-auto max-w-[82vw] object-contain drop-shadow-[0_6px_28px_rgba(6,182,212,0.22)] select-none transition-transform duration-500 hover:scale-[1.02]"
+          className="h-24 md:h-28 lg:h-36 xl:h-44 2xl:h-48 w-auto max-w-[85vw] object-contain drop-shadow-[0_6px_28px_rgba(6,182,212,0.22)] select-none transition-transform duration-500 hover:scale-[1.02]"
         />
       </div>
     </header>
