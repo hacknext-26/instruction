@@ -43,20 +43,20 @@ export const ProjectorDisplay: React.FC<ProjectorDisplayProps> = ({
       {/* Fullscreen Button Prompt (hidden when isPreview is true) */}
       <FullscreenButton isPreview={isPreview} />
 
-      {/* TOP: Fixed College Branding, Event Sub-Header & Centered Live Clock */}
+      {/* TOP: Fixed College Branding, Neon Glitch Logo Image & Centered Live Clock */}
       <Header floorNumber={floorNumber} />
 
-      {/* MIDDLE: 3-Part Balanced Composition
-          [LEFT: QR CODE + URL] — [CENTER: CURRENT EVENT & TITLE] — [RIGHT: CUTE MASCOT] */}
-      <div className="relative z-10 flex-1 flex items-center justify-between px-8 xl:px-14 py-2 w-full max-w-[1920px] mx-auto overflow-hidden">
+      {/* MIDDLE: 3 Separate columns - |QR|Event|Mascot|
+          QR and Mascot same width separated, center has maximum space */}
+      <div className="relative z-10 flex-1 flex items-center justify-between px-8 xl:px-16 py-3 w-full max-w-[1920px] mx-auto overflow-hidden">
         
         {/* Left: Problem Statement QR Portal Box */}
-        <div className="w-[260px] xl:w-[300px] shrink-0 flex flex-col items-center justify-center">
+        <div className="w-[280px] xl:w-[340px] shrink-0 flex flex-col items-center justify-center">
           <PortalSection />
         </div>
 
-        {/* Center: Dominant Current Event Focal Point */}
-        <div className="flex-1 flex items-center justify-center h-full px-4 xl:px-8">
+        {/* Center: Dominant Event Title & Description (has MORE space) */}
+        <div className="flex-1 flex items-center justify-center h-full px-6 xl:px-12">
           <EventSection
             title={event.event_title}
             description={event.event_description}
@@ -64,8 +64,8 @@ export const ProjectorDisplay: React.FC<ProjectorDisplayProps> = ({
           />
         </div>
 
-        {/* Right: Cute Typing Mascot */}
-        <div className="w-[260px] xl:w-[300px] shrink-0 flex items-center justify-center">
+        {/* Right: Coding Team Mascot (Same width as QR: 280px - 340px) */}
+        <div className="w-[280px] xl:w-[340px] shrink-0 flex items-center justify-center">
           <MascotSection />
         </div>
       </div>
