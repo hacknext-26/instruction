@@ -1,0 +1,7 @@
+{
+  "name": "HackNext Cyber Mascot",
+  "version": "2.0.0",
+  "description": "Customizable mascot asset descriptor. You can place a Lottie animation file (mascot.json) or high-res image (mascot.webp) in this directory.",
+  "author": "SNS College of Technology",
+  "event": "HACKNEXT'26 SERIES 2.0"
+}

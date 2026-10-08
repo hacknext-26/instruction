@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-luminous: #ffffff;
+    --card-surface: rgba(255, 255, 255, 0.85);
+    --border-luminous: rgba(226, 232, 240, 0.8);
+    --glow-primary: rgba(59, 130, 246, 0.18);
+    --glow-cyan: rgba(6, 182, 212, 0.18);
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fafbfe;
+    color: #0f172a;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Prevent any unintentional scrollbars on projector screens */
+  .projector-viewport {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+/* Luminous Glow Effects */
+.luminous-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 
+    0 4px 20px -2px rgba(15, 23, 42, 0.04),
+    0 0 25px rgba(59, 130, 246, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.luminous-glow-border {
+  border: 1px solid rgba(147, 197, 253, 0.6);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.12), inset 0 0 15px rgba(59, 130, 246, 0.05);
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-hack {
+  background: linear-gradient(135deg, #0f172a 0%, #2563eb 60%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dot grid background texture */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+}
+
+/* Custom sleek scrollbar for admin page */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.8);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
