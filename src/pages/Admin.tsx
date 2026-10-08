@@ -259,43 +259,45 @@ export const Admin: React.FC = () => {
               )}
             </div>
 
-            {/* Event Title Input */}
+            {/* Event Title Input - Two-Line Typing */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label 
                   htmlFor="event_title_input"
-                  className="text-xs font-bold text-slate-700 uppercase tracking-wide"
+                  className="text-xs font-bold text-slate-700 uppercase tracking-wide flex items-center gap-1.5"
                 >
-                  Event Title
+                  <span>Event Title</span>
+                  <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">2-Line Typing</span>
                 </label>
                 <span className="text-[11px] text-slate-400 font-mono">
-                  {formData[selectedFloor].title.length}/60 chars
+                  {formData[selectedFloor].title.length}/100 chars
                 </span>
               </div>
-              <input
+              <textarea
                 id="event_title_input"
-                type="text"
+                rows={2}
                 value={formData[selectedFloor].title}
                 onChange={(e) => handleInputChange('title', e.target.value)}
-                placeholder="e.g., Problem Statement Reveal"
-                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-100 text-slate-900 font-semibold text-base transition-all outline-none"
+                placeholder="e.g., PROBLEM STATEMENT&#10;REVEAL"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-100 text-slate-900 font-bold text-base transition-all outline-none resize-none leading-snug"
               />
               <p className="text-[11px] text-slate-500 mt-1">
-                Rendered prominently in large typography on the center projector.
+                Type across two lines comfortably without collapsing.
               </p>
             </div>
 
-            {/* Event Description Input */}
+            {/* Event Description Input - Three-Line Typing */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label 
                   htmlFor="event_desc_input"
-                  className="text-xs font-bold text-slate-700 uppercase tracking-wide"
+                  className="text-xs font-bold text-slate-700 uppercase tracking-wide flex items-center gap-1.5"
                 >
-                  Description
+                  <span>Description</span>
+                  <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">3-Line Typing</span>
                 </label>
                 <span className="text-[11px] text-slate-400 font-mono">
-                  {formData[selectedFloor].description.length}/140 chars
+                  {formData[selectedFloor].description.length}/180 chars
                 </span>
               </div>
               <textarea
@@ -303,11 +305,11 @@ export const Admin: React.FC = () => {
                 rows={3}
                 value={formData[selectedFloor].description}
                 onChange={(e) => handleInputChange('description', e.target.value)}
-                placeholder="e.g., Problem statements are now available for all participating teams."
-                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-100 text-slate-800 font-medium text-sm transition-all outline-none resize-none"
+                placeholder="e.g., Problem statements are now available for all participating teams.&#10;Please check the official portal link for instructions."
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-100 text-slate-800 font-medium text-sm transition-all outline-none resize-none leading-relaxed"
               />
               <p className="text-[11px] text-slate-500 mt-1">
-                Keep descriptions short (1–2 sentences) to maintain clean projector balance.
+                Supports up to three clean lines for event instructions.
               </p>
             </div>
 

@@ -36,7 +36,7 @@ export const EventSection: React.FC<EventSectionProps> = ({
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight font-display leading-[1.08] max-w-full break-words uppercase layered-shadow-title"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight font-display leading-[1.08] max-w-full break-words uppercase layered-shadow-title whitespace-pre-line"
             >
               {title || 'Loading Event...'}
             </motion.h2>
@@ -46,7 +46,7 @@ export const EventSection: React.FC<EventSectionProps> = ({
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="mt-3.5 xl:mt-5 text-xl md:text-2xl lg:text-3xl font-bold text-slate-700 max-w-[900px] leading-relaxed break-words"
+              className="mt-3.5 xl:mt-5 text-xl md:text-2xl lg:text-3xl font-bold text-slate-700 max-w-[900px] leading-relaxed break-words whitespace-pre-line"
             >
               {description || 'Please wait for announcements.'}
             </motion.p>
